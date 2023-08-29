@@ -25,19 +25,24 @@ spec:
       - image: iappcr.azurecr.io/fastapi
         imagePullPolicy: Always
         name: fastapi
-        envFrom:
-        - configMapRef: 
-            name: default
-        resources:
-          limits:
-            memory: 64Mi
-            cpu: "20m"
-          requests:
-            memory: 32Mi
-            cpu: "10m"
         env:
         - name: SQLALCHEMY_DATABASE_URL
-          value: "sqlite:///./db.sqlite3"
+          valueFrom:
+            secretKeyRef:
+              name: databaseurl
+              key: secretkey
+        - name: SECRET
+          valueFrom:
+            secretKeyRef:
+              name: secretkeyref
+              key: secretkey
+        resources:
+          limits:
+            memory: 256Mi
+            cpu: "100m"
+          requests:
+            memory: 128Mi
+            cpu: "50m"
       dnsPolicy: ClusterFirst
       imagePullSecrets:
       - name: iappcr

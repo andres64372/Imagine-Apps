@@ -15,7 +15,7 @@ class LooginUseCase:
 
     def execute(self, request: LoginRequest):
         user = self.__database_repo.get_user_by_email(request.email)
-        if bcrypt.checkpw(
+        if user and bcrypt.checkpw(
             request.password.encode('utf-8'), 
             user.password.encode('utf-8')
         ):

@@ -60,18 +60,6 @@ spec:
     app: database
 ---
 apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: database-pv
-  namespace: default
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: local-path
-  capacity:
-    storage: 0.1Gi
----
-apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: database-pv
@@ -82,4 +70,4 @@ spec:
   storageClassName: local-path
   resources:
     requests:
-      storage: 0.1Gi
+      storage: 1Gi

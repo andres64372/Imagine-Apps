@@ -32,9 +32,6 @@ spec:
           mountPath: "/data"
           readOnly: false
         name: redis
-        envFrom:
-        - configMapRef: 
-            name: default
         resources: 
           limits:
             memory: 64Mi
