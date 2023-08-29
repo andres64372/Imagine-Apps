@@ -8,3 +8,9 @@ Puede acceder a la documentación de la API generada automáticamente visitando 
 
 Para acceder a la documentación abra su navegador y vaya a:
 http://imapp.azurefd.net/docs
+
+## Infraestructura
+
+- Esta aplicación fue desplegada en un cluster de kubernetes de azure
+- La base de datos PostgreSQL está hosteada en NeonDB.
+- Para acceder al recusro de kubernetes se creó un perfil de frontdoor el cual contiene la url imapp.azurefd.net apuntando al balanceador de cargas de kubernetes
